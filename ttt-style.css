@@ -1,0 +1,16 @@
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    height: 80px;
+    width: 80px;
+    grid-gap: 1px;
+    margin: auto;
+}
+
+.cell{
+    text-align: center;
+    background: rgb(23, 179, 226); 
+}
