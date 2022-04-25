@@ -1,5 +1,5 @@
 const emptyCell = "";
-const board = [
+const board = [  // for the 9 cells
   // 1st line
   emptyCell, // index 0
   emptyCell, // index 1
@@ -14,47 +14,6 @@ const board = [
   emptyCell, // index 8
 ];
 
-function checkWinner() {
-  if (board[0] == board[1] && board[0] == board[2] && board[0] != emptyCell) {
-    // 0 1 2
-    alert("Winner is:" + board[0]);
-  }
-
-  if (board[3] == board[4] && board[3] == board[5] && board[3] != emptyCell) {
-    // 3 4 5
-    alert("Winner is:" + board[3]);
-  }
-
-  if (board[6] == board[7] && board[6] == board[8] && board[6] != emptyCell) {
-    // 6 7 8
-    alert("Winner is:" + board[6]);
-  }
-
-  if (board[0] == board[3] && board[0] == board[6] && board[0] != emptyCell) {
-    // 0 3 6
-    alert("Winner is:" + board[0]);
-  }
-
-  if (board[1] == board[4] && board[1] == board[7] && board[1] != emptyCell) {
-    // 1 4 7
-    alert("Winner is:" + board[1]);
-  }
-
-  if (board[2] == board[5] && board[2] == board[8] && board[2] != emptyCell) {
-    // 2 5 8
-    alert("Winner is:" + board[2]);
-  }
-
-  if (board[0] == board[4] && board[0] == board[8] && board[0] != emptyCell) {
-    // 0 4 8
-    alert("Winner is:" + board[0]);
-  }
-
-  if (board[2] == board[4] && board[2] == board[6] && board[2] != emptyCell) {
-    // 2 4 6
-    alert("Winner is:" + board[2]);
-  }
-}
 function getRandomInt(max) {
   // get a random number: [0, max);  e.g.   if max = 5,  it will get a number from [0, 1, 2, 3, 4]
   // learn more about it: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -62,7 +21,7 @@ function getRandomInt(max) {
 }
 
 function setBoardX(index) {
-  // This is a dummy AI
+  // This is a dummy AI for the computer
   if (board[index] == emptyCell) {
     board[index] = "x";
     const cell = document.getElementById(index + 1);
@@ -78,8 +37,13 @@ function setBoardX(index) {
 }
 
 function cellClick(index) {
+  console.log(index)
+  if (board[index - 1] != emptyCell) {
+      // if it's not empty, we don't draw here
+      return;
+  }
   const cell = document.getElementById(index);
-  cell.innerText = "⭕";
+  cell.innerText = "⭕"; // emoji
   board[index - 1] = "o";
   const computerMove = getRandomInt(9);
   setBoardX(computerMove);

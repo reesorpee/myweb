@@ -1,16 +1,15 @@
-
-
 .wrapper {
     display: grid;
     grid-template-columns:repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
-    height: 80px;
-    width: 80px;
+    height: 180px;
+    width: 180px;
     grid-gap: 1px;
     margin: auto;
 }
 
 .cell{
     text-align: center;
-    background: rgb(23, 179, 226); 
+    background: rgb(23, 195, 226); 
+    font-size: 34px;
 }
