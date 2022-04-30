@@ -226,7 +226,15 @@
           Change the 1st button's text
         </button>
 
-
+        <button type="button" style="margin-top: 20px" class="btn btn-secondary" onclick="fetchJoke()">
+          Fetch a joke
+        </button>
+        <textarea
+        style="margin-top: 10px"
+        id="joke-text"
+        class="form-control"
+        rows="5"
+      ></textarea>
       </div>
     </main>
 
@@ -265,6 +273,19 @@
         }
       }
 
+      function fetchJoke()
+      {
+
+        // call a backend API
+        // how to use the fetch api: https://www.javascripttutorial.net/javascript-fetch-api/
+        fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single")
+        .then(response => response.json())
+        .then(data => {
+          console.log(JSON.stringify(data));
+          document.getElementById("joke-text").value = data.joke;
+        })
+      }
+      
     </script>
   </body>
 </html>
